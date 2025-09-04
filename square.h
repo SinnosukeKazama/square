@@ -11,8 +11,9 @@ typedef struct data{
 	int	**sizeofside;
 }data;
 
-int	init_data(data *d);
+int	allocate_data(data *d);
 void	generate_map(data *d);
+void	free_data(data *d);
 
 int	solve_sizeofside(data d, vec2 *crnt);
 void	sides_data(data *d, vec2 *crnt);

@@ -21,21 +21,33 @@ void	generate_map(data *d)
 	}
 }
 
-int	init_data(data *d)
+int	allocate_data(data *d)
 {
 	int	i;
 
 	i = -1;
 	d->sizeofside = (int **)malloc(sizeof(int *) * d->H);
-	if (!d->sizeofside)
-		return (0);
-	while (++i < d->H)
-		d->sizeofside[i] = ft_int_calloc(d->W);
-	i = -1;
 	d->map = (char **)malloc(sizeof(char *) * d->H);
-	if (!d->map)
+	if (!d->sizeofside || !d->map)
 		return (0);
 	while (++i < d->H)
+	{
+		d->sizeofside[i] = ft_int_calloc(d->W);
 		d->map[i] = ft_char_calloc(d->W, '\0');
+	}
 	return (1);
+}
+
+void	free_data(data *d)
+{
+	int	i;
+
+	i = -1;
+	while (++i < d->H)
+	{
+		free(d->sizeofside[i]);
+		free(d->map[i]);
+	}
+	free(d->sizeofside);
+	free(d->map);
 }

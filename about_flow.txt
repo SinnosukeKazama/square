@@ -1,3 +1,20 @@
+プログラムの流れ：：：：
+入力＝マップ縦横の大きさ
+入力から必要メモリ確保。
+入力からマップ生成。
+マップ走査して以下のデータを求める。
+	正方形の最大辺長
+	最大辺長の正方形を描ける位置
+データから正方形を描く。
+マップ出力。
+
+補足：：：：
+bsqの課題をもとに作った。以下課題規則から外れている点。
+write関数で文字を出力。 -> printf関数で文字を出力。
+MkFileを扱っていない。
+コマンドライン引数からマップファイルを指定(マップファイルを読み込む）。 -> コマンドライン引数からマップ縦横の大きさを指定(プログラム内でマップ生成)。
+
+関数：：：：
 <main.c>
 main();
 
@@ -14,8 +31,9 @@ sides_data();
 	solver_sizeofside();
 write_sq();
 	solve_max();
-<init.c>
-init_data();
+<memory.c>
+allocate_data();
+free_data();
 generate_map();
 
 <out.c>
@@ -27,6 +45,12 @@ out_data();
 ft_min();
 ft_int_calloc();
 ft_char_calloc();
-ft_strlen();
-ft_power();
 ft_atoi();
+	ft_strlen();
+	ft_power();
+
+*インデントは関数f内で関数gが呼び出されていることを表す。(同一ファイル内にある関数に限る。）
+f();
+	g();
+
+	

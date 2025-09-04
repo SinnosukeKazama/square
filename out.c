@@ -32,6 +32,6 @@ void	out_map(data d)
 
 void	out_data(data d)
 {
-	out_sizeofside(d);
+//	out_sizeofside(d);
 	out_map(d);
 }
