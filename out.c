@@ -10,8 +10,8 @@ void	out_sizeofside(data d)
 	{
 		j = -1;
 		while (++j < d.W)
-			printf("%d,", d.sizeofside[i][j]);
-		printf("\n");
+			ft_putnum(d.sizeofside[i][j]);
+		ft_putchar('\n');
 	}
 }
 
@@ -25,13 +25,13 @@ void	out_map(data d)
 	{
 		j = -1;
 		while (++j < d.W)
-			printf("%c ", d.map[i][j]);
-		printf("\n");
+			ft_putchar(d.map[i][j]);
+		ft_putchar('\n');
 	}
 }
 
 void	out_data(data d)
 {
-//	out_sizeofside(d);
+	out_sizeofside(d);
 	out_map(d);
 }
